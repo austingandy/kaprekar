@@ -22,7 +22,7 @@ def get_digits(num):
   return [i for i in str(num)]
 
 KAPREKAR_NUM = 6174
-counts = np.zeros(10000)
+counts = np.zeros(9000)
 hist = defaultdict(lambda: 0)
 for i in range(1000,10000):
   if (i % 1111 == 0):
@@ -31,7 +31,7 @@ for i in range(1000,10000):
   while (diff != KAPREKAR_NUM):
     diff = find_high(diff) - find_low(diff)
     count += 1
-  counts[i] = count
+  counts[1000-i] = count
 
 plt.hist(counts, 7, normed=1, facecolor='g', alpha=0.75)
 plt.xlabel('Iterations to Kaprekar Number')
